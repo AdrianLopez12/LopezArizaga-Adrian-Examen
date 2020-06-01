@@ -1,5 +1,6 @@
 package ec.edu.ups.Controlador;
 
+import ec.edu.ups.Dao.ElectrodomesticoDao;
 import ec.edu.ups.Vista.VistaElectrodomestico;
 import ec.edu.ups.Modelo.Electrodomestico;
 import ec.edu.ups.Dao.IElectrodomesticoDao;
@@ -8,27 +9,34 @@ import java.util.List;
 
 public class ControladorElectrodomestico {
 
-    private VistaElectrodomestico vista;
+    private VistaElectrodomestico vista=new VistaElectrodomestico();
     private Electrodomestico modelo;
-    private IElectrodomesticoDao dao;
+    private ElectrodomesticoDao dao=new ElectrodomesticoDao();
+    Television tele=new Television();
+    Lavadora lava=new Lavadora();
 
     public ControladorElectrodomestico() {
     }
 
-    public ControladorElectrodomestico(VistaElectrodomestico vista, Electrodomestico modelo, IElectrodomesticoDao dao) {
+    public ControladorElectrodomestico(VistaElectrodomestico vista, Electrodomestico modelo, ElectrodomesticoDao dao) {
         this.vista = vista;
         this.modelo = modelo;
         this.dao = dao;
     }
 
-    public void registrarTelevision(Television television) {
+    public void registrarTelevision() {
 
-        dao.crearTelevision(television);
+       tele= vista.ingresarTelevision();
+        dao.crearTelevision(tele);
+        
+        
 
     }
 
-    public void RegistrarLavadora(Lavadora lavadora) {
-        dao.crearLavador(lavadora);
+    public void RegistrarLavadora() {
+        lava= vista.ingresarLavadora();
+        dao.crearLavador(lava);
+    
     }
 
     public List<Lavadora> verLavadoras() {

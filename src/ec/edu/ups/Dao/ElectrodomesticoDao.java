@@ -10,10 +10,15 @@ public class ElectrodomesticoDao implements IElectrodomesticoDao {
     List<Lavadora> lavadora = new ArrayList<>();
     List<Television> television = new ArrayList<>();
 
+    public ElectrodomesticoDao() {
+    }
+
+    
     @Override
     public void crearTelevision(Television television) {
 
         this.television.add(television);
+        
     }
 
     @Override
@@ -23,11 +28,14 @@ public class ElectrodomesticoDao implements IElectrodomesticoDao {
 
     @Override
     public List<Lavadora> listarlavadora() {
+       
         return this.lavadora;
+        
     }
 
     @Override
     public List<Television> listarTelevision() {
+        
         return this.television;
     }
 

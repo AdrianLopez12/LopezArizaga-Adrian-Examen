@@ -18,18 +18,12 @@ public class Principal {
         int cont = 0;
         do {
             cont++;
-            tele = vista.ingresarTelevision();
-            tele.precioFinal();
-
-            dao.crearTelevision(tele);
+           controlador.registrarTelevision();
         } while (cont < 3);
         cont = 0;
         do {
             cont++;
-            lava = vista.ingresarLavadora();
-            lava.precioFinal();
-
-            dao.crearLavador(lava);
+           controlador.RegistrarLavadora();
         } while (cont < 3);
         vista.mostrarLavadoras(dao.listarlavadora());
         vista.mostrarTelevisiones(dao.listarTelevision());
